@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        
+        Player player = new Player();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Set limit to start playing the game: ");
+        int limit = keyboard.nextInt();
+        keyboard.nextLine(); // Add this line to consume the newline character
+        boolean control= true;
+        do{
+            player.Play(limit); // Roll the die before getting the value
+            System.out.printf("Your die value: %d", player.GetDieValue());
+            System.out.printf("\nYour die points: %d", player.GetPoints());
+            System.out.println("\nPress y to play more: ");
+            String again = keyboard.nextLine(); 
+            if(!again.equalsIgnoreCase("y")){
+                control= false;
+            }
+        }while(control); // Change the condition to while(control)
+        keyboard.close();
+    }
+    
+}
