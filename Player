@@ -1,0 +1,28 @@
+public class Player {
+    private int points;
+    private Die die;
+
+    public Player(){
+        points= 20;
+        die = new Die(); 
+    }
+
+    public void Play(int limit){
+        die.Roll();
+        if(die.getValue() < limit){
+            points--;
+        }
+        else{
+            points++;
+        }
+    }
+    public int GetPoints(){
+        return points;
+    }
+    public int GetDieValue(){
+        return die.getValue();
+    }
+    public void Reset(){
+        points= 0;
+    }
+}
